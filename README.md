@@ -16,7 +16,6 @@ The information from Task 1 (9-day forecast) is from Hong Kong Observatory API
 
 
 ## 📦 Environment Prepare
-https://appium.io/docs/en/latest/quickstart/install/
 - **Python 3.9.2**
 - **Python pip requirements**
 ```commandline

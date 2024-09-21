@@ -1,4 +1,3 @@
-import configparser
 import time
 
 import pytest
@@ -6,7 +5,6 @@ import uiautomator2 as u2
 from pytest_bdd import scenario, given, when, then
 from retry import retry
 
-from main import get_resource_id
 from setting.test_conf import TEST_CONF as CONF
 from utils.u2_utils import check_exists, scroll_check_exists, click_wait
 
@@ -156,6 +154,10 @@ def open_weather_forecast_activity(_phone):
     locator = dict(text=text[CONF["language"]])
     if not check_exists(_phone, tries=2, **locator):
         raise Exception("open Weather Forecast Activity failed")
+
+
+def get_resource_id(resource_id):
+    return f"{CONF['package_name']}:id/{resource_id}"
 
 
 def _get_last_element(_phone, _id):
