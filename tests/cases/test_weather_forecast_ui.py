@@ -34,6 +34,9 @@ def launch_app(phone):
     time.sleep(2)
     phone.app_start(app_name)
     time.sleep(5)
+    pid = phone.app_wait(app_name)
+    if not pid:
+        raise Exception(f"{app_name} is not running")
 
 
 # When Steps
@@ -42,7 +45,7 @@ def skip_launch_ads(phone):
     print("skip launch ads")
     # hko.MyObservatory_v1_0:id/exit_btn
     resource_id = get_resource_id("exit_btn")
-    if not check_exists(phone, resourceId=resource_id):
+    if not check_exists(phone, tries=30, resourceId=resource_id):
         return
     phone.press("back")
     time.sleep(2)
