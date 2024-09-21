@@ -32,19 +32,27 @@ python -m weditor
 
 
 ## 🌟 Prerequisites
+- **connect android phone/emulator**
+```commandline
+set setting/test_conf.device_serial: {serial}
+```
 - **install myobservatory app**
 ```commandline
 adb install resource/MyObservatory_5.9.apk
 ```
 - **grant all permissions required by the app**
+- **set app language**
+```commandline
+set setting/test_conf.language: {EN/CN/TC}
+```
 
 
 ## Run test
 - **ui test**
 ```commandline
-pytest tests/cases/test_weather_forecast_ui.py -v -s
+pytest tests/cases/test_weather_forecast_ui.py -v -s --disable-warnings
 ```
 - **api test**
 ```commandline
-pytest tests/cases/test_weather_forecast_api.py -v -s
+pytest tests/cases/test_weather_forecast_api.py -v -s --disable-warnings
 ```
